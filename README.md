@@ -17,4 +17,8 @@ Data is from July 1, 2024 (latest as of September 24, 2024).
 <hr>
 
 #### Reason
-According to the California Air Resource Board, it's unsafe to live within 300 ft of a gas station<sup>[[1]](https://ww2.arb.ca.gov/news/air-resources-board-approves-land-use-planning-handbook)</sup> and potentially dangerous beyond that limit<sup>[[2]](https://www.publichealth.columbia.edu/news/gas-stations-vent-far-more-toxic-fumes-previously-thought)</sup>. The health risks associated with living near gas stations are substantial. Providing this map with a defined radius around gas stations can help inform a prospective home buyer or renter.
+Based on cancer risk estimations, the California Air Resources Board (CARB) recommended that schools, day cares, and other sensitive land uses should not be located within 300 ft of a large gas station (annual sales volume of >= 3.6 million gal). This CARB recommendation has not been adopted by all US states, and within states setback distances can depend on local government.<sup>[[1]](https://www.sciencedirect.com/science/article/abs/pii/S0048969718337549)</sup>
+
+A study led by environmental health scientists at Columbia University Mailman School of Public Health examined the release of vapors from gas station vent pipes, finding emissions were 10 times higher than estimates used in setback regulations.<sup>[[2]](https://www.publichealth.columbia.edu/news/gas-stations-vent-far-more-toxic-fumes-previously-thought)</sup>
+
+Providing this map with a defined radius around gas stations can help inform a prospective home buyer or renter.
