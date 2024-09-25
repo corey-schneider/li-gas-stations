@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Island Fuel Stations Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        .radius-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 10px;
+            z-index: 1000;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="radius-selector">
+        <label for="radius">Select radius (ft):</label>
+        <select id="radius">
+            <option value="300">300 ft</option>
+            <option value="500">500 ft</option>
+            <option value="1000">1000 ft</option>
+            <option value="2000">2000 ft</option>
+        </select>
+        <div>
+          <h3>What do these distances mean?</h3>
+          <ul style="padding-inline-start: 20px;">
+            <li>300 ft: CARB minimum safe distance</li>
+            <li>500 ft: Particles travel this far</li>
+            <li>1000 ft: No evidence found</li>
+            <li>2000 ft: Safe</li>
+          </ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>
