@@ -1007,3 +1007,5 @@ ID,Business,Street Address,City,State,ZIP,Latitude,Longitude,Type of Installatio
 883,Mcdave 1738 Inc.,2280 Tillotson Av,Bronx,NY,10475,40.882461,-73.826437,Transfer Switch Only,POINT (-73.826437 40.882461)
 101,PMG Northeast LLC,950 Carmans Road,Massapequa,NY,11758,40.702628,-73.432633,Permanent Generator,POINT (-73.432633 40.702628)
 973,Yorktown Gas Mart Inc,3205 Crompond Rd,Yorktown Heights,NY,10598,41.291025,-73.823139,Transfer Switch Only,POINT (-73.823139 41.291025)
+000,Shinnecock Indian Gas Station,Newtown Rd,Hampton Bays,NY,11946,40.890398,-72.509500,Manual,POINT (-72.509500 40.890398)
+000,Valero,,West Sayville,NY,11796,40.728702,-73.101714,Manual,POINT (-73.101714 40.728702)
