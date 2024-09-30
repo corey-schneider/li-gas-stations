@@ -1,10 +1,50 @@
-// Initialize the map and set its view to Long Island, NY
-const map = L.map('map').setView([40.789142, -73.134960], 10);
+// Define the bounding box for Long Island, NYC, and Westchester (example coordinates)
+const viewbox = [
+  [-74.25909, 40.477399],  // Southwest corner (Staten Island)
+  [-71.751709, 41.332]     // Northeast corner (Westchester/Long Island)
+];
 
-// Add OpenStreetMap tiles
+// Define the full map area (covering the world map bounds)
+const fullMapArea = [
+  [-90, -180],    // Southwest corner of the world
+  [-90, 180],     // Southeast corner of the world
+  [90, 180],      // Northeast corner of the world
+  [90, -180]      // Northwest corner of the world
+];
+
+// Initialize the map
+const map = L.map('map').setView([40.85, -73.135], 10);
+
+// Add the OpenStreetMap tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
+  maxZoom: 18,
+  attribution: '© OpenStreetMap contributors'
 }).addTo(map);
+
+// Define a polygon that covers the entire map with a "hole" for the viewbox
+const grayedOutPolygon = L.polygon([
+  fullMapArea,  // Outer boundary (world map)
+  [
+      [viewbox[0][1], viewbox[0][0]],  // Southwest corner of viewbox
+      [viewbox[0][1], viewbox[1][0]],  // Southeast corner
+      [viewbox[1][1], viewbox[1][0]],  // Northeast corner
+      [viewbox[1][1], viewbox[0][0]]   // Northwest corner
+  ]  // Inner boundary (the viewbox area, excluded from the gray overlay)
+], {
+  color: 'gray',  // Outline color
+  fillColor: 'gray',  // Gray fill for the outer area
+  fillOpacity: 0.75,  // Semi-transparency for grayed-out area
+  stroke: false  // No outline for the polygon
+}).addTo(map);
+
+// Optionally, draw the viewbox border for clarity
+const viewboxBorder = L.rectangle([
+  [viewbox[0][1], viewbox[0][0]],  // Southwest corner
+  [viewbox[1][1], viewbox[1][0]]   // Northeast corner
+], {
+  fillOpacity: 0,  // Fully opaque to mask the gray
+}).addTo(map);
+
 
 // Function to create a radius circle around a point
 function createRadiusCircle(lat, lon, radiusFeet) {
@@ -120,7 +160,10 @@ function formatAddress(display_name) {
 // Function to geocode the address
 function geocodeAddress(address, callback) {
     showLoading(true);
-    const nominatimUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1`;
+
+    // Define the bounding box for Long Island, NYC, and Westchester
+    const viewbox = '-74.25909,40.477399,-71.751709,41.332';
+    const nominatimUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1&viewbox=${viewbox}&bounded=1`;
 
     fetch(nominatimUrl)
         .then(response => response.json())
