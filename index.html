@@ -19,6 +19,7 @@
             z-index: 1000;
             border-radius: 5px;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            opacity: 0.8;
         }
         .search-container {
             position: absolute;
@@ -29,6 +30,7 @@
             z-index: 1000;
             border-radius: 5px;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            opacity: 0.85;
         }
         /* Loading indicator styling */
         #loading {
@@ -52,6 +54,30 @@
         #search-button {
             padding: 5px 10px;
         }
+
+        .distance-info {
+            cursor: pointer; /* Change cursor to indicate clickability */
+        }
+
+        .caret {
+            margin-left: 10px; /* Spacing between text and caret */
+        }
+
+        /* Show on desktop, hide on mobile */
+        @media (max-width: 768px) {
+            #distance-list {
+                display: none; /* Default hidden on mobile */
+                opacity: 0.8;
+            }
+        }
+
+        /* Show by default on desktop */
+        @media (min-width: 769px) {
+            #distance-list {
+                display: block; /* Default shown on desktop */
+                opacity: 0.8;
+            }
+        }
     </style>
 </head>
 <body>
@@ -70,14 +96,17 @@
             <option value="1000">1000 ft</option>
             <option value="2000">2000 ft</option>
         </select>
-        <div>
-          <h3>What do these distances mean?</h3>
-          <ul style="padding-inline-start: 20px;">
-            <li>300 ft: CARB minimum safe distance</li>
-            <li>500 ft: Particles possible</li>
-            <li>1000 ft: Particles possible</li>
-            <li>2000 ft: No known particles</li>
-          </ul>
+        <div class="distance-info">
+            <div class="header" onclick="toggleInfo()">
+                <h3>What do these distances mean? <span class="caret" id="caret">▾</span></h3>
+                 <!-- Downward caret -->
+            </div>
+            <ul id="distance-list" style="display: none; padding-inline-start: 20px;">
+                <li>300 ft: CARB minimum safe distance</li>
+                <li>500 ft: Particles possible</li>
+                <li>1000 ft: Particles possible</li>
+                <li>2000 ft: No known particles</li>
+            </ul>
         </div>
     </div>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>

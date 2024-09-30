@@ -206,3 +206,17 @@ document.getElementById('search-button').addEventListener('click', () => {
         alert('Please enter an address.');
     }
 });
+
+function toggleInfo() {
+  const list = document.getElementById('distance-list');
+  const caret = document.getElementById('caret');
+
+  // Toggle display of the list
+  if (list.style.display === 'none') {
+      list.style.display = 'block'; // Show the list
+      caret.innerHTML = '▴'; // Change to upward caret
+  } else {
+      list.style.display = 'none'; // Hide the list
+      caret.innerHTML = '▾'; // Change to downward caret
+  }
+}
