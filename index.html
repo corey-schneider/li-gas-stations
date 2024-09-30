@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Long Island Fuel Stations Map</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <div id="map"></div>
-    <div id="loading" style="display: none;">Loading...</div>
-    <div class="search-container">
-      <input type="text" id="address-input" placeholder="Enter home address" />
-      <button id="search-button">Search</button>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Long Island Fuel Stations Map</title>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="map"></div>
+		<div id="loading" style="display: none">Loading...</div>
+		<div class="search-container">
+			<input
+				type="text"
+				id="address-input"
+				placeholder="Enter home address"
+			/>
+			<button id="search-button">Search</button>
+		</div>
+
+		<div class="radius-selector">
+			<label for="radius">Select radius (ft):</label>
+			<select id="radius">
+				<option value="300">300 ft</option>
+				<option value="500">500 ft</option>
+				<option value="1000">1000 ft</option>
+				<option value="2000">2000 ft</option>
+			</select>
+			<div class="distance-info">
+				<div class="header" onclick="toggleInfo()">
+					<h4>What do these distances mean? <span class="caret" id="caret">▾</span></h4>
+				</div>
+				<ul id="distance-list" style="display: none; padding-inline-start: 20px">
+					<li>300 ft: CARB minimum safe distance</li>
+					<li>500 ft: Particles possible</li>
+					<li>1000 ft: Particles possible</li>
+					<li>2000 ft: No known particles</li>
+				</ul>
+			</div>
+		</div>
+
+    <div id="github-link">
+      <a href="https://github.com/corey-schneider/li-gas-stations" target="_blank">github.com/corey-schneider/li-gas-stations</a>
     </div>
-  
-    <div class="radius-selector">
-        <label for="radius">Select radius (ft):</label>
-        <select id="radius">
-            <option value="300">300 ft</option>
-            <option value="500">500 ft</option>
-            <option value="1000">1000 ft</option>
-            <option value="2000">2000 ft</option>
-        </select>
-        <div class="distance-info">
-            <div class="header" onclick="toggleInfo()">
-                <h3>What do these distances mean? <span class="caret" id="caret">▾</span></h3>
-                 <!-- Downward caret -->
-            </div>
-            <ul id="distance-list" style="display: none; padding-inline-start: 20px;">
-                <li>300 ft: CARB minimum safe distance</li>
-                <li>500 ft: Particles possible</li>
-                <li>1000 ft: Particles possible</li>
-                <li>2000 ft: No known particles</li>
-            </ul>
-        </div>
-    </div>
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <script src="map.js"></script>
-</body>
+		<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+		<script src="map.js"></script>
+	</body>
 </html>
